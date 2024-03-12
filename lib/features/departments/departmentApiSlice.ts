@@ -25,6 +25,11 @@ export const departmentApiSlice = createApi({
     getDepartment: builder.query<Department, string>({
       query: (id) => `department/${id}`,
     }),
+    getManagedDepartments: builder.query<Pick<Department, 'id' | 'name' | 'description'>[], string>(
+      {
+        query: (id) => `department/${id}/managed`,
+      }
+    ),
     addDepartment: builder.mutation<Department, IDepartmentAdd>({
       query: (data) => ({
         url: 'department',
@@ -40,5 +45,9 @@ export const departmentApiSlice = createApi({
   }),
 });
 
-export const { useGetAllDepartmentsQuery, useGetDepartmentQuery, useAddDepartmentMutation } =
-  departmentApiSlice;
+export const {
+  useGetAllDepartmentsQuery,
+  useGetDepartmentQuery,
+  useAddDepartmentMutation,
+  useGetManagedDepartmentsQuery,
+} = departmentApiSlice;

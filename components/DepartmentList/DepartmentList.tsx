@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Title, Table, LoadingOverlay, Box } from '@mantine/core';
+import { Title, Table, LoadingOverlay, Box, Container } from '@mantine/core';
 import { useGetAllDepartmentsQuery } from '@/lib/features/departments/departmentApiSlice';
 
 export function DepartmentList() {
@@ -18,7 +18,7 @@ export function DepartmentList() {
     </Table.Tr>
   ));
   return (
-    <>
+    <Container>
       <Title>Organization Departments </Title>
       <Box>
         <LoadingOverlay
@@ -37,6 +37,6 @@ export function DepartmentList() {
           <Table.Tbody>{rows}</Table.Tbody>
         </Table>
       </Box>
-    </>
+    </Container>
   );
 }
